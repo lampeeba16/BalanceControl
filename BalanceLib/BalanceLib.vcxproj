@@ -23,6 +23,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\BalanceControlPi\Dummy.cpp" />
+    <ClCompile Include="Rocker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="Rocker.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
