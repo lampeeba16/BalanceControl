@@ -15,9 +15,10 @@ public:
 	double get_angle() const;
 
 private:
-	static constexpr double pi = 3.14159;
+	double length_;
 	double target_angle_;
 	double max_angle_;
 	double max_d_angle_;
 	double current_angle_;
+	static constexpr double pi = 3.14159265358979323846;
 };

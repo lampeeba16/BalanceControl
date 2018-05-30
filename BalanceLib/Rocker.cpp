@@ -1,6 +1,7 @@
 #include "Rocker.h"
 
 Rocker::Rocker(double length, double max_angle, double max_d_angle) :
+	length_{length},
 	target_angle_{0},
 	max_angle_{max_angle},
 	max_d_angle_{max_d_angle},
@@ -10,7 +11,7 @@ Rocker::Rocker(double length, double max_angle, double max_d_angle) :
 
 void Rocker::update(std::chrono::duration<double> duration)
 {
-	double delta_angle = current_angle_ - target_angle_;
+	double delta_angle = target_angle_ - current_angle_;
 	const double max_delta = max_d_angle_ * duration.count();
 	if (delta_angle > max_delta)
 		delta_angle = max_delta;
