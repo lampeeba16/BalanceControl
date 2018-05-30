@@ -2,13 +2,14 @@
 
 #include <math.h>
 #include "Ball.h"
+#include <chrono>
 
 class PID
 {
 public:
 	PID();
 
-	PID(double p_amount,double i_amount,double d_amount,double max_out_pos,double max_out_neg,double control_target, double integration_time, double integral);
+	PID(double p_amount,double i_amount,double d_amount,double max_out_pos,double max_out_neg,double control_target, std::chrono::duration<double> integration_time, double integral);
 
 	double Calculate(Ball &Ball);
 
@@ -20,6 +21,6 @@ private:
 	double max_out_neg_;
 	double control_target_;
 	double pre_error_;
-	double integration_time_;
+	std::chrono::duration<double> integration_time_;
 	double integral_;
 };
