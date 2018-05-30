@@ -12,9 +12,12 @@ public:
 
 	void set_target_angle(double target);
 
+	double get_angle() const;
+
 private:
 	static constexpr double pi = 3.14159;
 	double target_angle_;
 	double max_angle_;
 	double max_d_angle_;
+	double current_angle_;
 };
