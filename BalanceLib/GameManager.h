@@ -1,14 +1,16 @@
 #pragma once
 //#include "stdafx.h"
+#include <chrono>
 #include "Ball.h"
 #include "Rocker.h"
+
 
 class GameManager
 {
 public:
 	GameManager();
 
-	GameManager(int timestep);
+	GameManager(std::chrono::duration<double> timestep);
 
 	void Update(PID &Regler, Ball &Ball, Rocker &Rocker);
 
@@ -16,7 +18,6 @@ public:
 
 	void Reset(Ball &Ball, Rocker &Rocker);
 private:
-	int timestep_;
-
+	std::chrono::duration<double> timestep_;
 
 };

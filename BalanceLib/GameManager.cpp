@@ -1,27 +1,30 @@
 #include "GameManager.h"
-#include "Ball.h"
-
+#include <math.h>
 GameManager::GameManager()
 {
 }
 
-GameManager::GameManager(int timestep) :timestep_{ timestep }
+GameManager::GameManager(std::chrono::duration<double> timestep) :timestep_{ timestep }
 {
 }
 
 void GameManager::Update(PID &Regler, Ball &Ball, Rocker &Rocker)
 {
-	Regler.control()
+	using namespace std::chrono_literals;
+	Rocker.set_target_angle(Regler.control());
+	Rocker.update(timestep_);
+
+	Ball.velocity=+(9.81*sin(Rocker.get_angle())*timestep_/1000ms);//Beschleunigung
 }
 
 void GameManager::Push_Ball(Ball &Ball)
 {
-	Ball.velocity_ = +0.5;
+	Ball.velocity = +0.5;
 }
 
 void GameManager::Reset(Ball &Ball, Rocker &Rocker)
 {
-	Ball.velocity_ = 0;
-	Ball.Position_ = 0; //Oder Center, je nach implementierung
-	Rocker.Reset_angle();
+	Ball.velocity = 0;
+	Ball.position = 0; //Oder Center, je nach implementierung
+	Rocker.reset();
 }
