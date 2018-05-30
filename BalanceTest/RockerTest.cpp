@@ -5,7 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace BalanceTest
 {		
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(Rocker_test)
 	{
 	public:
 		
