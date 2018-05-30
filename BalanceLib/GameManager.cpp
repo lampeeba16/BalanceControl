@@ -6,11 +6,11 @@ GameManager::GameManager()
 {
 }
 
-GameManager::GameManager(std::chrono::duration<double> timestep): timestep_{ timestep }
+GameManager::GameManager(std::chrono::duration<double> timestep): timestep_{ timestep }//Zeitstempel als parameter übergeben!
 {
 }
 
-void GameManager::Update(PID &Regler, Ball &Ball, Rocker &Rocker)
+void GameManager::Update(PID &Regler, Ball &Ball, Rocker &Rocker)//Nicht jedes Mal mitübergeben!
 {
 	using namespace std::chrono_literals;
 
