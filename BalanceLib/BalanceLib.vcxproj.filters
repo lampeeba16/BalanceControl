@@ -21,6 +21,17 @@
     <ClCompile Include="..\BalanceControlPi\Dummy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rocker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Rocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClCompile Include="..\BalanceControlPi\GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
