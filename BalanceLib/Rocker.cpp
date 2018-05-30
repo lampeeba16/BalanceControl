@@ -41,3 +41,8 @@ double Rocker::get_angle() const
 {
 	return current_angle_;
 }
+
+double Rocker::length() const
+{
+	return length_;
+}

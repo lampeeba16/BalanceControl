@@ -14,6 +14,8 @@ public:
 
 	double get_angle() const;
 
+	double length() const;
+
 private:
 	double length_;
 	double target_angle_;
