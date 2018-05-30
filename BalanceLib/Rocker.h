@@ -17,10 +17,10 @@ public:
 	double length() const;
 
 private:
-	double length_;
+	const double length_;
 	double target_angle_;
-	double max_angle_;
-	double max_d_angle_;
+	const double max_angle_;
+	const double max_d_angle_;
 	double current_angle_;
 	static constexpr double pi = 3.14159265358979323846;
 };

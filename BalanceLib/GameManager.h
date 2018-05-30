@@ -5,6 +5,8 @@
 #include "Rocker.h"
 
 
+class PID;
+
 class GameManager
 {
 public:
