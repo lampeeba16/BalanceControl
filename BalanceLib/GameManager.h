@@ -1,5 +1,7 @@
 #pragma once
 //#include "stdafx.h"
+#include "Ball.h"
+#include "Rocker.h"
 
 class GameManager
 {
