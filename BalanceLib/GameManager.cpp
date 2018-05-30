@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "Ball.h"
 
 GameManager::GameManager()
 {

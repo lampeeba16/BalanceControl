@@ -23,15 +23,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\BalanceControlPi\Dummy.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Rocker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="Rocker.h" />
-    <ClCompile Include="..\BalanceControlPi\GameManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\BalanceControlPi\GameManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
