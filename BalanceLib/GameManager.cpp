@@ -13,11 +13,13 @@ GameManager::GameManager(std::chrono::duration<double> timestep): timestep_{ tim
 void GameManager::Update(PID &Regler, Ball &Ball, Rocker &Rocker)
 {
 	using namespace std::chrono_literals;
+
 	Rocker.set_target_angle(Regler.Calculate(Ball));
 	Rocker.update(timestep_);
 
 	Ball.velocity += (9.81*sin(Rocker.get_angle()) * timestep_.count());//Geschwindigkeit berechnen und setzen
 	Ball.position += (Ball.velocity * timestep_.count());//Neue Position berechnen und setzen
+
 
 }
 
