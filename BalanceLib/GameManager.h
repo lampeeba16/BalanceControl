@@ -12,7 +12,7 @@ class GameManager
 {
 public:
 	GameManager(PID &Regler);
-
+	
 	void update(std::chrono::duration<double> timestep);
 
 	void push_ball(double velocity);
@@ -23,6 +23,7 @@ public:
 
 	Rocker rocker();
 
+	//~GameManager();
 private:
 	PID controller_;
 	Ball ball_;
