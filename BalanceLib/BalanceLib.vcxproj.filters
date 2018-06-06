@@ -24,10 +24,10 @@
     <ClCompile Include="Rocker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="PID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PID.cpp">
+    <ClCompile Include="Game_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClInclude Include="Ball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
+    <ClInclude Include="PID.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PID.h">
+    <ClInclude Include="Game_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

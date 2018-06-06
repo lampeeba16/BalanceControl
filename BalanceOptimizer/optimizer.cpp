@@ -2,7 +2,7 @@
 
 #include "optimizer.h"
 #include "../BalanceLib/PID.h"
-#include "../BalanceLib/GameManager.h"
+#include "../BalanceLib/Game_manager.h"
 
 #include <cmath>
 #include <chrono>
@@ -73,7 +73,7 @@ std::vector<Pid_test_point> Optimizer::get_test_points(double p_para, double i_p
 double Optimizer::error_calc(double p, double i, double d) const
 {
 	PID controller{ p, i, d, 1, -1 };
-	GameManager mgr{ controller };
+	Game_manager mgr{ controller };
 	mgr.push_ball(1);
 
 	double error = 0;

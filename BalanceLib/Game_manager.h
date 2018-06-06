@@ -8,10 +8,10 @@
 
 class PID;
 
-class GameManager
+class Game_manager
 {
 public:
-	GameManager(PID &Regler);
+	Game_manager(PID &controller);
 	
 	void update(std::chrono::duration<double> timestep);
 
@@ -19,11 +19,10 @@ public:
 
 	void reset();
 
-	Ball ball();
+	Ball ball() const;
 
-	Rocker rocker();
+	Rocker rocker() const;
 
-	//~GameManager();
 private:
 	PID controller_;
 	Ball ball_;
