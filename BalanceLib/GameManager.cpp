@@ -13,7 +13,7 @@ void GameManager::update(std::chrono::duration<double> timestep)//Nicht jedes Ma
 {
 	using namespace std::chrono_literals;
 
-	rocker_.set_target_angle(controller_.calculate(ball_.position, timestep));
+	rocker_.set_target_angle(controller_.calculate(ball_.position, timestep, 0));
 	rocker_.update(timestep);
 
 	ball_.velocity += (9.81*sin(rocker_.get_angle()) * timestep.count());//Geschwindigkeit berechnen und setzen

@@ -4,21 +4,20 @@ PID::PID()
 {
 }
 
-PID::PID(double p_amount, double i_amount, double d_amount, double max_out_pos, double max_out_neg, double control_target, double integral) :
+PID::PID(double p_amount, double i_amount, double d_amount, double max_out_pos, double max_out_neg, double integral) :
 	p_amount_{ p_amount },
 	i_amount_{ i_amount },
 	d_amount_{ d_amount },
 	max_out_pos_{ max_out_pos },
 	max_out_neg_{ max_out_neg },
-	control_target_{ control_target },
 	integral_ {integral}
 {
 	pre_error_ = 0;
 }
 
-double PID::calculate(double value, std::chrono::duration<double> delta_t)
+double PID::calculate(double value, std::chrono::duration<double> delta_t, double control_target)
 {
-	double error = control_target_ - value;
+	double error = control_target - value;
 
 	double pout = p_amount_ * error;
 
