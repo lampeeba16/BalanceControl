@@ -20,9 +20,9 @@ void GameManager::update(std::chrono::duration<double> timestep)//Nicht jedes Ma
 	ball_.position += (ball_.velocity * timestep.count());//Neue Position berechnen und setzen
 }
 
-void GameManager::push_ball()
+void GameManager::push_ball(double velocity)
 {
-	ball_.velocity += 0.5;
+	ball_.velocity += velocity;
 }
 
 void GameManager::reset()

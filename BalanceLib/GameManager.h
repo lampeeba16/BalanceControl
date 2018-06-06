@@ -15,7 +15,7 @@ public:
 
 	void update(std::chrono::duration<double> timestep);
 
-	void push_ball();
+	void push_ball(double velocity);
 
 	void reset();
 
