@@ -74,7 +74,7 @@ double Optimizer::error_calc(double p, double i, double d) const
 {
 	PID controller{ p, i, d, 1, -1 };
 	GameManager mgr{ controller };
-	mgr.push_ball(0.5);
+	mgr.push_ball(1);
 
 	double error = 0;
 	for (int i = 0; i < 500; i++) {
@@ -82,7 +82,21 @@ double Optimizer::error_calc(double p, double i, double d) const
 		error += abs(mgr.ball().position);
 	}
 
-	mgr.push_ball(-0.5);
+	mgr.push_ball(-1);
+
+	for (int i = 0; i < 500; i++) {
+		mgr.update(delta_t_);
+		error += abs(mgr.ball().position);
+	}
+
+	mgr.push_ball(-3);
+
+	for (int i = 0; i < 500; i++) {
+		mgr.update(delta_t_);
+		error += abs(mgr.ball().position);
+	}
+
+	mgr.push_ball(+2);
 
 	for (int i = 0; i < 500; i++) {
 		mgr.update(delta_t_);
