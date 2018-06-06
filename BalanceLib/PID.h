@@ -1,7 +1,5 @@
 #pragma once
 
-#include <math.h>
-#include "Ball.h"
 #include <chrono>
 
 class PID
@@ -9,9 +7,9 @@ class PID
 public:
 	PID();
 
-	PID(double p_amount,double i_amount,double d_amount,double max_out_pos,double max_out_neg,double control_target, std::chrono::duration<double> integration_time, double integral);
+	PID(double p_amount, double i_amount, double d_amount, double max_out_pos, double max_out_neg, double control_target = 0, double integral = 0);
 
-	double Calculate(Ball &Ball);
+	double calculate(double value, std::chrono::duration<double> integration_time);
 
 private:
 	double p_amount_;
@@ -21,6 +19,5 @@ private:
 	double max_out_neg_;
 	double control_target_;
 	double pre_error_;
-	std::chrono::duration<double> integration_time_;
 	double integral_;
 };

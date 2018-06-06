@@ -4,7 +4,7 @@
 class Rocker
 {
 public:
-	Rocker(double length = 2, double max_angle = pi / 8, double max_d_angle = pi / 32);
+	Rocker(double length = 2, double max_angle = pi / 8, double max_d_angle = pi / 4);
 
 	void update(std::chrono::duration<double> duration);
 
@@ -13,6 +13,7 @@ public:
 	void set_target_angle(double target);
 
 	double get_angle() const;
+	double get_target_angle() const;
 
 	double length() const;
 

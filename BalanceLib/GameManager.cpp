@@ -1,36 +1,43 @@
 #include "GameManager.h"
-#include <math.h>
 #include "PID.h"
 
-GameManager::GameManager()
+#include <cmath>
+
+GameManager::GameManager(PID &controller) :
+	controller_{ controller }
 {
+
 }
 
-GameManager::GameManager(std::chrono::duration<double> timestep): timestep_{ timestep }//Zeitstempel als parameter übergeben!
-{
-}
-
-void GameManager::Update(PID &Regler, Ball &Ball, Rocker &Rocker)//Nicht jedes Mal mitübergeben!
+void GameManager::update(std::chrono::duration<double> timestep)//Nicht jedes Mal mitübergeben!
 {
 	using namespace std::chrono_literals;
 
-	Rocker.set_target_angle(Regler.Calculate(Ball));
-	Rocker.update(timestep_);
+	rocker_.set_target_angle(controller_.calculate(ball_.position, timestep));
+	rocker_.update(timestep);
 
-	Ball.velocity += (9.81*sin(Rocker.get_angle()) * timestep_.count());//Geschwindigkeit berechnen und setzen
-	Ball.position += (Ball.velocity * timestep_.count());//Neue Position berechnen und setzen
-
-
+	ball_.velocity += (9.81*sin(rocker_.get_angle()) * timestep.count());//Geschwindigkeit berechnen und setzen
+	ball_.position += (ball_.velocity * timestep.count());//Neue Position berechnen und setzen
 }
 
-void GameManager::Push_Ball(Ball &Ball)
+void GameManager::push_ball()
 {
-	Ball.velocity += 0.5;
+	ball_.velocity += 0.5;
 }
 
-void GameManager::Reset(Ball &Ball, Rocker &Rocker)
+void GameManager::reset()
 {
-	Ball.velocity = 0;
-	Ball.position = 0; //Oder Center, je nach implementierung
-	Rocker.reset();
+	ball_.velocity = 0;
+	ball_.position = 0; //Oder Center, je nach implementierung
+	rocker_.reset();
+}
+
+Ball GameManager::ball()
+{
+	return ball_;
+}
+
+Rocker GameManager::rocker()
+{
+	return rocker_;
 }

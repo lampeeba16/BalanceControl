@@ -3,6 +3,7 @@
 #include <chrono>
 #include "Ball.h"
 #include "Rocker.h"
+#include "PID.h"
 
 
 class PID;
@@ -10,16 +11,20 @@ class PID;
 class GameManager
 {
 public:
-	GameManager();
+	GameManager(PID &Regler);
 
-	GameManager(std::chrono::duration<double> timestep);
+	void update(std::chrono::duration<double> timestep);
 
-	void Update(PID &Regler, Ball &Ball, Rocker &Rocker);
+	void push_ball();
 
-	void Push_Ball(Ball &Ball);
+	void reset();
 
-	void Reset(Ball &Ball, Rocker &Rocker);
+	Ball ball();
+
+	Rocker rocker();
+
 private:
-	std::chrono::duration<double> timestep_;
-
+	PID controller_;
+	Ball ball_;
+	Rocker rocker_;
 };
