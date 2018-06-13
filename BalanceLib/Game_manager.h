@@ -23,6 +23,8 @@ public:
 
 	Rocker rocker() const;
 
+	bool ball_down_;
+
 private:
 	PID controller_;
 	Ball ball_;

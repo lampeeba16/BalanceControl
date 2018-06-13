@@ -2,6 +2,7 @@
 #include "PID.h"
 
 #include <cmath>
+#include <iostream>
 
 Game_manager::Game_manager(PID &controller) :
 	controller_{ controller }
@@ -15,6 +16,14 @@ void Game_manager::update(std::chrono::duration<double> timestep)
 
 	ball_.velocity += (9.81*sin(rocker_.get_angle()) * timestep.count());//Geschwindigkeit berechnen und setzen
 	ball_.position += (ball_.velocity * timestep.count());//Neue Position berechnen und setzen
+
+	//std::cout << "seas" << std::endl;
+
+	if (abs(ball_.position) >= (rocker_.length() / 2))
+		ball_down_ = 0;
+	else 
+		ball_down_ = 1;
+		
 }
 
 void Game_manager::push_ball(double velocity)
